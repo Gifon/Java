@@ -4,12 +4,12 @@ public class Task8 {
     public static void main(String[] args) {
         System.out.println("Введите два числа");
         Scanner bc = new Scanner(System.in);
-        long b = bc.nextLong();
-        long c = bc.nextLong();
-        long b1 = b;
-        long c1 = c;
-        int lenb = (b == 0 ? 1 : 0);
-        int lenc = (c == 0 ? 1 : 0);
+        long b = bc.nextLong(); // вводим первое число
+        long c = bc.nextLong(); // вводим второе число
+        long b1 = b;  //  вводим данные перменные
+        long c1 = c;  //  чтобы не изменять b и с
+        int lenb = (b == 0 ? 1 : 0); // кол-во цифр первого числа
+        int lenc = (c == 0 ? 1 : 0); // кол-во цифр второго числа
         while (b1 != 0) {
             lenb++;
             b1 /= 10;
@@ -18,15 +18,15 @@ public class Task8 {
             lenc++;
             c1 /= 10;
         }
-        int maxlen = Math.max(lenb, lenc);
-        double bmas [] = new double[maxlen];
-        double cmas [] = new double[maxlen];
+        int maxlen = Math.max(lenb, lenc); // наибольшее кол-во цифр из двух чисел
+        double bmas [] = new double[maxlen]; // вспомогательный массив чисел из первого числа
+        double cmas [] = new double[maxlen]; // вспомогательный массив чисел из второго числа
         bmas[0] = b/(Math.pow(10,lenb-1));
         bmas[0] = (int) bmas[0];
         cmas[0] = c/(Math.pow(10,lenc-1));
         cmas[0] = (int) cmas[0];
-        double bmasnew [] = new double[lenb];
-        double cmasnew [] = new double[lenc];
+        double bmasnew [] = new double[lenb]; // массив цифр, из которых состоит первое число
+        double cmasnew [] = new double[lenc]; // массив цифр, из которых состоит второе число
         bmasnew [0] = bmas [0];
         cmasnew [0] = cmas [0];
         for (int i = 1; i < maxlen; i++) {
